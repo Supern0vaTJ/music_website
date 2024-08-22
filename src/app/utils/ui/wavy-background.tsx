@@ -1,7 +1,12 @@
 "use client";
+import { init } from "next/dist/compiled/webpack/webpack";
 import { cn } from "../cn";
 import React, { useEffect, useRef, useState } from "react";
 import { createNoise3D } from "simplex-noise";
+
+useEffect(() => {
+  WavyBackground(Animation);
+}, [Animation, init]);
 
 export const WavyBackground = ({
   children,

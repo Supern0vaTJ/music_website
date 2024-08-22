@@ -2,6 +2,9 @@
 
 import { cn } from "../cn";
 import React, { useEffect, useState } from "react";
+useEffect(() => {
+  handleAnimations();
+}, []); // Missing dependency 'handleAnimations'
 
 export const InfiniteMovingCards = ({
   items,
@@ -119,3 +122,7 @@ export const InfiniteMovingCards = ({
     </div>
   );
 };
+function handleAnimations() {
+  throw new Error("Function not implemented.");
+}
+

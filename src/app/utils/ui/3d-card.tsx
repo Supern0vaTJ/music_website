@@ -9,6 +9,9 @@ import React, {
   useRef,
   useEffect,
 } from "react";
+useEffect(() => {
+  handleAnimations();
+}, []); // Missing dependency 'handleAnimations'
 
 const MouseEnterContext = createContext<
   [boolean, React.Dispatch<React.SetStateAction<boolean>>] | undefined
@@ -25,7 +28,7 @@ export const CardContainer = ({
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMouseEntered, setIsMouseEntered] = useState(false);
-
+  
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!containerRef.current) return;
     const { left, top, width, height } =
@@ -153,3 +156,7 @@ export const useMouseEnter = () => {
   }
   return context;
 };
+function handleAnimations() {
+  throw new Error("Function not implemented.");
+}
+
